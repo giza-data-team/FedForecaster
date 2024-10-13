@@ -29,14 +29,14 @@ To run the random search benchmarking for regression models, follow these steps:
 
 ### Running the Experiments
  
-1. Execute the main benchmarking script:
+2. Execute the main benchmarking script:
    ```bash
    python run.py
    ```
  
 3. The results will be logged in `results.csv`.
  
-### Customization
+### Algorithm Search Space
 
 - **Search Space**: Modify the `search_space` in `random_search.py` to adjust the models included in the search process. By default, the following models are used:
   - **XGBoost**
@@ -45,7 +45,8 @@ To run the random search benchmarking for regression models, follow these steps:
   - **Huber Regressor**
   - **ElasticNet**
   - **Quantile Regressor**
+### Stages
 
 - **Data Preprocessing**: The script automatically converts any input data into a regression problem, but you can customize the preprocessing logic by modifying the `FeatureExtraction` and `FeatureEngineerin` pipeline classes  in `client_utils`.
-
+- **Get Random Model**: After Preprocessing, use `RandomModel`class from `random_model.py` to recommend random model with random hyperParameters till the time budget end then return the best model with best hyperParameters
 For any questions or feedback, please feel free to open an issue or submit a pull request.
