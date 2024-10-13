@@ -1,6 +1,7 @@
-# Fed-Forecasted Models
+## Overview
 
-This branch contains the code and experimental setup for benchmarking various regression models using random search within the context of a forecasting problem. The models are selected from a predefined search space, and any input data is first transformed into a regression problem before being processed. The project aims to recommend an optimal model for forecasting based on regression metrics.
+FedForecaster automates the complete pipeline of time-series forecasting, including feature engineering, algorithm selection, and hyperparameter tuning, all while ensuring that data remains decentralized. The engine employs a meta-model trained on a diverse collection of synthetic and real univariate time-series datasets to recommend the best forecasting algorithms based on aggregated statistical meta-features from multiple clients.
+
 
 ## Features
 
@@ -10,6 +11,7 @@ This branch contains the code and experimental setup for benchmarking various re
 - **Top 3 Model Recommendation**:Using aggregated meta-features, the system recommends the top 3 models for forecasting tasks based on previously trained models.
 - **Time-Budgeted Optimization**:The available time budget is dynamically split across the top 3 recommended models. Each model undergoes optimization of hyperparameters after each round to improve performance.
 - **Final Best Model**:At the end of the optimization process, the best model with the best hyperparameters is saved.
+
 ## Getting Started
 
 To run the random search benchmarking for regression models, follow these steps:
@@ -24,8 +26,8 @@ To run the random search benchmarking for regression models, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone https://your-repo-url.git
-   cd your-project-directory
+   git clone https://github.com/giza-data-team/FedForecaster.git
+   cd FedForecaster
 
 ### Running the Experiments
  
