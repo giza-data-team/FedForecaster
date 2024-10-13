@@ -24,8 +24,8 @@ To run the random search benchmarking for regression models, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone https://your-repo-url.git
-   cd your-project-directory
+   git clone https://github.com/giza-data-team/FedForecaster.git
+   cd FedForecaster
 
 ### Running the Experiments
  
