@@ -17,12 +17,10 @@ class MetaModelPyCaret:
 
         # Create the full path to the file
         model_path = os.path.join(current_directory, model_path)
-        # model_path = f"D:/federatedLearning/GizaFederatedLearning/production-pipeline/GizaFederatedML/server_utils/{model_path}"
         self.model = joblib.load(model_path)
 
         if encoder_path:
             encoder_path = os.path.join(current_directory, encoder_path)
-            # encoder_path = f"D:/federatedLearning/GizaFederatedLearning/production-pipeline/GizaFederatedML/server_utils/{encoder_path}"
             self.label_encoder = joblib.load(encoder_path)
         else:
             self.label_encoder = None
@@ -78,16 +76,3 @@ class MetaModelPyCaret:
             top_n_classes = [class_mapping[cls] for cls in top_n_classes]
         return top_n_classes, normalized_probs
 
-
-if __name__ == "__main__":
-    # Example usage:
-    import json
-
-    # Create MetaModel instance
-    meta_model = MetaModelPyCaret(prob_threshold=None, top_n=3, model_path='final_model.pkl',
-                           encoder_path='label_encoder.pkl')
-    # Make prediction
-    input_features = json.load(open('D:/federatedLearning/GizaFederatedLearning/production-pipeline/GizaFederatedML/server_utils/meta_model/new_model/meta_feature_example.json'))
-    predictions , nor= meta_model.predict_best_model(input_features)
-    print(predictions)
-    print(nor)
