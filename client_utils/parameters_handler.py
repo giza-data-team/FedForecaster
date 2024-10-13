@@ -1,8 +1,6 @@
-import json
 from client_utils.features_extraction import features_extraction_pipeline
 from client_utils.features_engineering import FeaturesEngineeringPipeline
 from client_utils.extract_features_importance import FeatureImportanceExtraction
-from client_utils.fit_candidate_models import FitCandidateModels
 from client_utils.file_controller import FileController
 from client_utils.split_data import SplitData
 from client_utils.ModelEnum import ModelEnum
@@ -51,26 +49,18 @@ class ParametersHandler:
         elif server_round == 3:
             print(f"Round {server_round} started: Hyperparameter tuning on candidate models")
             del data_list[0]['server_round']
-            models = ['lasso']
             self.selected_features = data_list[0]['selected_features']
             self.file_controller.save_file(self.selected_features, "FinalSelectedFeatures")
             print(f"Round {server_round} Done: returned best performance of candidate models to the server")
-            output = {"rmse_results": {"test":0.5552}}
+            # hardcoded output
+            # it's doesn't reflect to any part of code
+            output = {}
         elif server_round == 4:
             print(f"Round {server_round} started: Receive the best model over all clients and start to train the model")
             del data_list[0]['server_round']
-            # hyper_parameters = self.file_controller.get_file("hyperParameters")
-            # best_model = str(data_list[0]['best_model'])
-            # best_model_parameters = hyper_parameters[best_model]
             model = get_best_model()
-            # print(f"Best model: {best_model}, Best_model_parameters: {best_model_parameters}")
-            # chosen_model = {'model_name': best_model, 'model_parameters': best_model_parameters}
-            # self.file_controller.save_file(chosen_model, "best_model")
             X, y = SplitData(data=self.train_data, selected_features=self.selected_features,
                              target_column=self.columns_types['target']).x_y_split()
-            # model_class, _ = self.modelEnum.get_model_data(best_model)
-            # model = model_class.__class__(**best_model_parameters)
             model.fit(X, y)
             output = get_model_weights(model)
-            print(output)
         return output

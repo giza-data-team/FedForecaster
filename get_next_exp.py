@@ -14,7 +14,7 @@ class GetNextExperiment:
         self.completed_experiments = self.read_results()
 
     def _get_data_set_names(self):
-        path = "Datasets/"
+        path = "benchmarking_datasets/"
         files = os.listdir(path)
         dataset_names = [file.split(".")[0] for file in files]
         names = []
@@ -57,7 +57,7 @@ class GetNextExperiment:
             if n_clients == 9:
                 print(dataset_name)
                 raise
-            data = pd.read_csv(f"./Datasets/{str(dataset_name)}.csv").ffill()
+            data = pd.read_csv(f"benchmarking_datasets/{str(dataset_name)}.csv").ffill()
 
             total_rows = len(data)
 
@@ -71,10 +71,10 @@ class GetNextExperiment:
                 return False
         except:
             if n_clients == 10 and dataset_name in ["XLE", "XLF", "XLI", "XLK"]:
-                data = pd.read_csv(f"./Datasets/{str(dataset_name)}/1.csv")
+                data = pd.read_csv(f"benchmarking_datasets/{str(dataset_name)}/1.csv")
                 return True
             elif n_clients == 9 and dataset_name in ["GDX", "XLU"]:
-                data = pd.read_csv(f"./Datasets/{str(dataset_name)}/1.csv")
+                data = pd.read_csv(f"benchmarking_datasets/{str(dataset_name)}/1.csv")
                 return True
             else:
                 return False
