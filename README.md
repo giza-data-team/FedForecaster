@@ -1,6 +1,6 @@
 # Fed-Forecasted Models
 
-This branch contains the code and experimental setup for benchmarking various regression models using random search within the context of a forecasting problem. The models are selected from a predefined search space, and any input data is first transformed into a regression problem before being processed. The project aims to recommend an optimal model for forecasting based on regression metrics.
+This branch also includes the FedForecaster model, designed for federated learning-based forecasting with several unique stages and optimizations.
 
 ## Features
 
