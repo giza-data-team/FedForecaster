@@ -97,9 +97,9 @@ class CustomStrategy(Strategy):
             fit_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
             evaluate_metrics_aggregation_fn: Optional[MetricsAggregationFn] = None,
             inplace: bool = True,
+            max_time_minutes = 5,
             dataset_name,
-            n_clients,
-            max_time_minutes
+            n_clients
     ) -> None:
         super().__init__()
 
