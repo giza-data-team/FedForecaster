@@ -118,14 +118,3 @@ class MetaModel:
         # top_n_classes = ['QUANTILEREGRESSOR', 'LinearSVR']
         print("-----------------------------")
         return top_n_classes, normalized_probs
-
-
-if __name__ == "__main__":
-    # Example usage:
-    import json
-
-    meta_model = MetaModel(prob_threshold=None, top_n=2, model_path='trained_best_model.pkl',
-                           encoder_path='label_encoder.pkl')
-    input_features = json.load(open('meta_features_example.json'))
-    # print(input_features[0])
-    models, probs = meta_model.recommendModels(input_features)

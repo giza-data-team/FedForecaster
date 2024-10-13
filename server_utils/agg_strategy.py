@@ -29,7 +29,7 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.strategy import Strategy
 from .save_results import SaveResults
 from .meta_model.meta_model import MetaModel
-from .meta_model.new_model.pycaret_metamodel import MetaModelPyCaret
+from .meta_model.trained_model.pycaret_metamodel import MetaModelPyCaret
 from .meta_model.model_optimizer import ModelOptimizer
 WARNING_MIN_AVAILABLE_CLIENTS_TOO_LOW = """
 Setting `min_available_clients` lower than `min_fit_clients` or
@@ -149,8 +149,8 @@ class CustomStrategy(Strategy):
         self.model_optimizer = ModelOptimizer()
         # self.meta_model = MetaModelPyCaret(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/new_model/final_model.pkl',
         #                    encoder_path='server_utils/meta_model/new_model/label_encoder.pkl')
-        self.meta_model = MetaModel(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/new_model/final_model.pkl',
-                           encoder_path='server_utils/meta_model/new_model/label_encoder.pkl')
+        self.meta_model = MetaModel(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/trained_mode/final_model.pkl',
+                           encoder_path='server_utils/meta_model/trained_model/label_encoder.pkl')
 
     def __repr__(self) -> str:
         """Compute a string representation of the strategy."""
