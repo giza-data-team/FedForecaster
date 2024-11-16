@@ -103,7 +103,7 @@ class CustomStrategy(Strategy):
             inplace: bool = True,
             dataset_name,
             n_clients,
-            time_budget = 10
+            time_budget = 5
     ) -> None:
         super().__init__()
 
@@ -138,7 +138,7 @@ class CustomStrategy(Strategy):
         self.index_flag = 0
         self.start_time = 0
         self.n_clients = n_clients
-        self.save_result = SaveResults(n_clients=n_clients)
+        self.save_result = SaveResults()
         self.dataset_name = dataset_name
         self.train_loss = -1
         self.selected_models = []
@@ -149,7 +149,7 @@ class CustomStrategy(Strategy):
         self.model_optimizer = ModelOptimizer()
         # self.meta_model = MetaModelPyCaret(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/new_model/final_model.pkl',
         #                    encoder_path='server_utils/meta_model/new_model/label_encoder.pkl')
-        self.meta_model = MetaModel(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/trained_mode/final_model.pkl',
+        self.meta_model = MetaModel(prob_threshold=None, top_n=3, model_path='server_utils/meta_model/trained_model/final_model.pkl',
                            encoder_path='server_utils/meta_model/trained_model/label_encoder.pkl')
 
     def __repr__(self) -> str:
@@ -277,7 +277,7 @@ class CustomStrategy(Strategy):
             else:
                 agg_features = aggregator.aggregate_keys(results=results)
                 agg_size = aggregator.aggregate_size(results=results)
-                agg_parameters = aggregator.aggregate(agg_features, agg_size)
+                agg_parameters = aggregator.aggregate(agg_features, agg_size,self.dataset_name)
                 agg_parameters["server_round"] = server_round + 1
                 agg_features = json.dumps(agg_parameters).encode("utf-8")
                 tensors = [agg_features]

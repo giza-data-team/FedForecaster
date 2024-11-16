@@ -29,10 +29,10 @@ class GetClientData:
             try:
                 int(self.dataset_name)
                 data_flag = False
-                self.data = pd.read_csv(f"./Datasets/{self.dataset_name}.csv").ffill()
+                self.data = pd.read_csv(f"./benchmarking_data/{self.dataset_name}.csv").ffill()
             except:
                 data_flag = True
-                self.data = pd.read_csv(f"./Datasets/{self.dataset_name}/{self.client_id+1}.csv").ffill()
+                self.data = pd.read_csv(f"./benchmarking_data/{self.dataset_name}/{self.client_id+1}.csv").ffill()
         except Exception as e:
             raise ValueError(f"Error reading the dataset: {e}")
 

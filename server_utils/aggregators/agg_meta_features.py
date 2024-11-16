@@ -8,15 +8,29 @@ from server_utils.aggregators.base_aggregator import Aggregator
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-
+from server_utils.save_results import SaveResults
 
 class MetaFeatureExtractionAggregator(Aggregator):
+    def __init__(self):
+        self.save_result = SaveResults(file_name="metaFeaturesTimeTaken.csv")
 
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         logging.debug(f"Parameters received for aggregation")
         out_parameters = {}
-
+        print("parameters")
+        print(parameters)
         for feature, feature_parameters in parameters.items():
+            if feature == "timeTaken":
+                avg_taken = sum(feature_parameters['timeTaken']) / len(feature_parameters['timeTaken'])
+                self.save_result.save(dataset_name=dataset_name,
+                                        num_clients=len(feature_parameters['timeTaken']),
+                                        train_loss=-1,
+                                        test_loss=-1,
+                                        time_taken=avg_taken,
+                                        model="",
+                                        parameters="",
+                                        models=[-1,-1,-1])
+                continue
             out_parameters[feature] = {}
             """Meta Feature Extraction Before preprocessing"""
             # for Instances in Clients

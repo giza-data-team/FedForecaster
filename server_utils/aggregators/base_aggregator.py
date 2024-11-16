@@ -30,5 +30,5 @@ class Aggregator(ABC):
             aggregated_length.append(parameters)
         return aggregated_length
     @abstractmethod
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         pass

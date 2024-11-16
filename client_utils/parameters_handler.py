@@ -7,7 +7,7 @@ from client_utils.features_engineering import FeaturesEngineeringPipeline
 from client_utils.extract_features_importance import FeatureImportanceExtraction
 from client_utils.meta_features_before import meta_feature_extraction
 from client_utils.meta_features_after import FEX_pipeline
-
+from datetime import datetime
 
 class ParametersHandler:
     def __init__(self, raw_train_data, preprocessed_train_data, preprocessed_test_data, columns_types, dataset_type):
@@ -48,7 +48,7 @@ class ParametersHandler:
                 f"Round {server_round} Done: Applied feature engineering/Feature importance and returned to the server")
         elif server_round == 3:
             del data_list[0]['server_round']
-
+            start_meta_features_extraction = datetime.now()
             self.selected_features = data_list[0]['selected_features']
             self.meta_features_before = meta_feature_extraction(self.raw_train_data)
             # create a selected features dataframe
@@ -57,11 +57,15 @@ class ParametersHandler:
             columns_to_select = self.selected_features + ['Target', 'Timestamp']
             selected_features_df = self.train_data[columns_to_select].copy()
             self.meta_features_after = FEX_pipeline(selected_features_df)
+            end_meta_features_extraction = datetime.now()
+            time_difference = abs(end_meta_features_extraction - start_meta_features_extraction)
+            diff = time_difference.total_seconds()
             combined_meta_features = {
                 "meta_features": {
                     **self.meta_features_before["meta_features"],
                     **self.meta_features_after["meta_features"]
-                }
+                },
+                "timeTaken": {"timeTaken":diff}
             }
             output = self._convert_to_serializable(combined_meta_features)
             print(

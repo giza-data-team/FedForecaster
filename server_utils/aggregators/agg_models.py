@@ -8,7 +8,7 @@ class ModelsAggregator(Aggregator):
 
     """
 
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         """
         Selects the best model based on average performance across evaluations.
 

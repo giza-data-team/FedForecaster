@@ -3,8 +3,8 @@ import csv
 
 
 class SaveResults:
-    def __init__(self, n_clients):
-        self.file_name = "FL_results.csv"
+    def __init__(self, file_name = "results.csv"):
+        self.file_name = file_name
         self.columns = [
             "dataset_name",
             "num_clients",

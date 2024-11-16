@@ -17,7 +17,7 @@ class ModelWeightsAggregator(Aggregator):
         # return fl.common.Parameters(tensors=[w.astype(np.float32).tobytes() for w in weights],
         #                             tensor_type="model_weights")
 
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         weights_results = [self.parameters_to_weights(parameters_res.parameters) for _,parameters_res in parameters]
         num_examples = [num_examples.num_examples for _, num_examples in parameters]
         if len(weights_results) == 0:

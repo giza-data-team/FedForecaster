@@ -63,11 +63,9 @@ os.chdir(script_dir)
 parser = argparse.ArgumentParser(description="Process named arguments.")
 
 # Define arguments
-parser.add_argument("--n_clients", type=str, required=True, help="Number of clients")
 parser.add_argument("--port", type=str, required=True, help="port")
 args = parser.parse_args()
 
-n_clients = int(args.n_clients)
 port = args.port
 
 for n_clients in [5,15,10,9,20]:

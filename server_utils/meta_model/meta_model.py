@@ -50,7 +50,7 @@ class MetaModel:
         else:
             self.label_encoder = None
 
-    def recommendModels(self, input_features: dict) -> list:
+    def predict_best_model(self, input_features: dict) -> list:
         """
         Predicts class probabilities for a single record and returns the top classes based on either
         the probability threshold or the number of top classes specified.

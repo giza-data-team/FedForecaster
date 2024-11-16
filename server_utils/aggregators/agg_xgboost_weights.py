@@ -8,7 +8,7 @@ class XGBoostWeightsAggregator(Aggregator):
     def __init__(self):
         self.global_model = None
 
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         global_model = self.global_model
 
         for _, fit_res in parameters:

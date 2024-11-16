@@ -3,7 +3,7 @@ from server_utils.aggregators.base_aggregator import Aggregator
 
 
 class FeatureExtractionAggregator(Aggregator):
-    def aggregate(self, parameters, data_sizes=[]):
+    def aggregate(self, parameters, data_sizes=[],dataset_name = ""):
         out_parameters = {}
         for feature, feature_parameters in parameters.items():
             out_parameters[feature] = {}
