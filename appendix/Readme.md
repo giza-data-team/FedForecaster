@@ -23,18 +23,18 @@ Below is the performance Comparison of `FedForecaster`, `Random Search`, and `N-
 
 | **Dataset**                           | **Len.** | **Clients** | **FedForecaster** | **Random Search** | **N-Beats** | **N-Beats Centralized** | **Best Model**       |
 |---------------------------------------|----------|-------------|--------------------|-------------------|-------------|--------------------------|----------------------|
-| BOE-XUDLERD                           | 15653    | 20          | **0.006**          | 0.011             | 0.071       | **0.00402**               | HuberRegressor       |
-| SunSpotDaily                          | 73924    | 20          | **29.372**         | 32.069            | 63.384      | **16.51**              | Lasso                |
-| USBirthsDaily                         | 7305     | 5           | **434.891**        | 533.366           | 983.357     | 820.02               | LinearSVR            |
-| nasdaq_Brazil_Base_Financial_Rate     | 10091    | 10          | 0.058              | **0.048**         | 0.153       | **0.031**              | LinearSVR            |
-| nasdaq_Brazil_Pr_Base_Financial_Rate  | 10091    | 15          | **0.008**          | 0.012             | 0.008       | **0.0014**              | HuberRegressor       |
-| nasdaq_Brazil_Saving_Deposits1        | 812      | 5           | **0.028**          | 0.039             | 0.412       | **0.0252**              | Lasso                |
-| nasdaq_Brazil_Saving_Deposits2        | 1182     | 10          | **0.020**          | 0.025             | 0.024       | **0.0057**              | XGBRegressor         |
-| nasdaq_EIA_PET_RWTC                   | 9124     | 5           | **1.291**          | 1.404             | 8.663       | **1.108**               | LinearSVR            |
-| nasdaq_WIKI_AAPL_Price                | 9124     | 15          | **3.761**          | 4.242             | 4.145       | **3.991**              | LinearSVR            |
-| Energy Select Sector ETF              | 2517     | 10          | 3.441              | **2.867**         | 24.611      | 24.611                   | Lasso                |
-| The Technology Sector ETF             | 2517     | 10          | **39.996**         | 101.702           | 75.980      | 75.980                   | QuantileRegressor    |
-| Utilities Select Sector ETF           | 2517     | 10          | **1.297**          | 11.701            | 17.577      | 17.577                   | HuberRegressor       |
+| BOE-XUDLERD                           | 15653    | 20          | <b>0.006</b>          | 0.011             | 0.071       | <b>0.00402</b>               | HuberRegressor       |
+| SunSpotDaily                          | 73924    | 20          | <b>29.372</b>         | 32.069            | 63.384      | <b>16.51</b>              | Lasso                |
+| USBirthsDaily                         | 7305     | 5           | <b>434.891</b>        | 533.366           | 983.357     | 820.02               | LinearSVR            |
+| nasdaq_Brazil_Base_Financial_Rate     | 10091    | 10          | 0.058              | <b>0.048</b>         | 0.153       | <b>0.031</b>              | LinearSVR            |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 10091    | 15          | <b>0.008</b>          | 0.012             | 0.008       | <b>0.0014</b>              | HuberRegressor       |
+| nasdaq_Brazil_Saving_Deposits1        | 812      | 5           | <b>0.028</b>          | 0.039             | 0.412       | <b>0.0252</b>              | Lasso                |
+| nasdaq_Brazil_Saving_Deposits2        | 1182     | 10          | <b>0.020</b>          | 0.025             | 0.024       | <b>0.0057</b>              | XGBRegressor         |
+| nasdaq_EIA_PET_RWTC                   | 9124     | 5           | <b>1.291</b>          | 1.404             | 8.663       | <b>1.108</b>               | LinearSVR            |
+| nasdaq_WIKI_AAPL_Price                | 9124     | 15          | <b>3.761</b>          | 4.242             | 4.145       | <b>3.991</b>              | LinearSVR            |
+| Energy Select Sector ETF              | 2517     | 10          | 3.441              | <b>2.867</b>         | 24.611      | 24.611                   | Lasso                |
+| The Technology Sector ETF             | 2517     | 10          | <b>39.996</b>         | 101.702           | 75.980      | 75.980                   | QuantileRegressor    |
+| Utilities Select Sector ETF           | 2517     | 10          | <b>1.297</b>          | 11.701            | 17.577      | 17.577                   | HuberRegressor       |
 
 
 ## Benchmarking Experiments with all clients' counts
@@ -43,35 +43,35 @@ The below table summarizes the MSE results for the benchmark datasets over all p
 
 | **Dataset Name**                       | **Clients** | **FedForecaster** | **Random Search** | **N-Beats**         |
 |---------------------------------------|-------------|--------------------|-------------------|---------------------|
-| BOE-XUDLERD                           | 5           | **0.0261**         | 0.0282       | 0.2176            |
-| BOE-XUDLERD                           | 10          | 0.0191         | **0.0142**       | 0.0120            |
-| BOE-XUDLERD                           | 15          | **0.0116**        | 0.0140       | 0.0713            |
-| BOE-XUDLERD                           | 20          | **0.006**          | 0.011             | 0.071               |
-| SunSpotDaily                          | 5           | **24.554**             | 24.839955         | 34.34048            |
-| SunSpotDaily                          | 10          | **29.301**             | 31.521126         | 54.949              |
-| SunSpotDaily                          | 15          | **25.804**             | 26.30128          | 63.512              |
-| SunSpotDaily                          | 20          | **29.372**         | 32.069            | 63.384              |
-| USBirthsDaily                         | 5           | **434.891**        | 533.366           | 983.357             |
-| USBirthsDaily                         | 10          | **535.652**            | 669.647           | 1147.762            |
-| nasdaq_Brazil_Base_Financial_Rate     | 5           | 0.0459           | **0.0435**          | 0.559            |
-| nasdaq_Brazil_Base_Financial_Rate     | 10          | 0.058              | **0.048**         | 0.153               |
-| nasdaq_Brazil_Base_Financial_Rate     | 15          | **0.045743**           | 0.060963          | 0.189575            |
-| nasdaq_Brazil_Pr_Base_Financial_Rate  | 5           | 0.00423           | 0.04199           | **0.003306**            |
-| nasdaq_Brazil_Pr_Base_Financial_Rate  | 10          | **0.00697**            | 0.03215          | 0.00698             |
-| nasdaq_Brazil_Pr_Base_Financial_Rate  | 15          | **0.008**          | 0.011775          | 0.008495            |
-| nasdaq_Brazil_Saving_Deposits1        | 5           | **0.028**          | 0.039467          | 0.412               |
-| nasdaq_Brazil_Saving_Deposits2        | 5           | **0.0102**           | 0.0211                 | 0.191782            |
-| nasdaq_Brazil_Saving_Deposits2        | 10          | **0.020**          | 0.02536           | 0.024               |
-| nasdaq_Brazil_Saving_Deposits2        | 15          | 0.0420           | **0.0363**          | 0.076547            |
-| nasdaq_EIA_PET_RWTC                   | 5           | **1.291**          | 1.404             | 8.663               |
-| nasdaq_EIA_PET_RWTC                   | 10          | **1.313**           | 2.100          | 1.529               |
-| nasdaq_EIA_PET_RWTC                   | 15          | **1.3458**           | 2.093          | 1.544               |
-| nasdaq_WIKI_AAPL_Price                | 5           | 18.609             | 19.595            | **17.856**            |
-| nasdaq_WIKI_AAPL_Price                | 10          | **16.564**             | 54.534091         | 18.063154            |
-| nasdaq_WIKI_AAPL_Price                | 15          | **3.761**          | 4.242377          | 4.145               |
-| Energy Select Sector ETF              | 10          | 3.441              | **2.867**         | 24.611              |
-| The Technology Sector ETF             | 10          | **39.996**         | 101.702           | 75.980              |
-| Utilities Select Sector ETF           | 10           | **1.297**          | 11.701            | 17.577              |
+| BOE-XUDLERD                           | 5           | <b>0.0261</b>         | 0.0282       | 0.2176            |
+| BOE-XUDLERD                           | 10          | 0.0191         | <b>0.0142<b>       | 0.0120            |
+| BOE-XUDLERD                           | 15          | <b>0.0116</b>        | 0.0140       | 0.0713            |
+| BOE-XUDLERD                           | 20          | <b>0.006</b>          | 0.011             | 0.071               |
+| SunSpotDaily                          | 5           | <b>24.554</b>             | 24.839955         | 34.34048            |
+| SunSpotDaily                          | 10          | <b>29.301</b>             | 31.521126         | 54.949              |
+| SunSpotDaily                          | 15          | <b>25.804</b>             | 26.30128          | 63.512              |
+| SunSpotDaily                          | 20          | <b>29.372</b>         | 32.069            | 63.384              |
+| USBirthsDaily                         | 5           | <b>434.891</b>        | 533.366           | 983.357             |
+| USBirthsDaily                         | 10          | <b>535.652</b>            | 669.647           | 1147.762            |
+| nasdaq_Brazil_Base_Financial_Rate     | 5           | 0.0459           | <b>0.0435</b>          | 0.559            |
+| nasdaq_Brazil_Base_Financial_Rate     | 10          | 0.058              | <b>0.048</b>         | 0.153               |
+| nasdaq_Brazil_Base_Financial_Rate     | 15          | <b>0.04574</b>           | 0.060963          | 0.189575            |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 5           | 0.00423           | 0.04199           | <b>0.003306</b>            |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 10          | <b>0.00697</b>            | 0.03215          | 0.00698             |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 15          | <b>0.008</b>          | 0.011775          | 0.008495            |
+| nasdaq_Brazil_Saving_Deposits1        | 5           | <b>0.028</b>          | 0.039467          | 0.412               |
+| nasdaq_Brazil_Saving_Deposits2        | 5           | <b>0.0102</b>           | 0.0211                 | 0.191782            |
+| nasdaq_Brazil_Saving_Deposits2        | 10          | <b>0.020</b>          | 0.02536           | 0.024               |
+| nasdaq_Brazil_Saving_Deposits2        | 15          | 0.0420           | <b>0.0363</b>          | 0.076547            |
+| nasdaq_EIA_PET_RWTC                   | 5           | <b>1.291</b>          | 1.404             | 8.663               |
+| nasdaq_EIA_PET_RWTC                   | 10          | <b>1.313</b>           | 2.100          | 1.529               |
+| nasdaq_EIA_PET_RWTC                   | 15          | <b>1.3458</b>           | 2.093          | 1.544               |
+| nasdaq_WIKI_AAPL_Price                | 5           | 18.609             | 19.595            | <b>17.856</b>            |
+| nasdaq_WIKI_AAPL_Price                | 10          | <b>16.564</b>             | 54.534091         | 18.063154            |
+| nasdaq_WIKI_AAPL_Price                | 15          | <b>3.761</b>          | 4.242377          | 4.145               |
+| Energy Select Sector ETF              | 10          | 3.441              | <b>2.867</b>         | 24.611              |
+| The Technology Sector ETF             | 10          | <b>39.996</b>         | 101.702           | 75.980              |
+| Utilities Select Sector ETF           | 10           | <b>1.297</b>          | 11.701            | 17.577              |
 
 
 ## Feature Selection Threshold
