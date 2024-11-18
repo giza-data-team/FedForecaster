@@ -8,3 +8,4 @@ prophet~=1.1.5
 pycaret==3.3.2
 bayesian-optimization==1.5.1
 xgboost==2.0.3
+scikit-optimize==0.10.2
