@@ -1,0 +1,9 @@
+﻿Model Name,Model Source,Hyperparameters,Number of Combinations
+LASSO,sklearn.linear_model.Lasso,"{'alpha': np.logspace(np.log10(1e-5), np.log10(2), num=30), 'selection': ['cyclic', 'random']}",60
+LinearSVR,sklearn.svm.LinearSVR,"{'C': [1, 2, 3, 5, 10], 'epsilon': [0.01, 0.05, 0.1]}",15
+ELASTICNETCV,sklearn.linear_model.ElasticNetCV,"{'l1_ratio': np.linspace(0.3, 1, 10), 'selection': ['cyclic', 'random']}",20
+XGBRegressor,xgboost.XGBRegressor,"{'learning_rate': [0.1, 1], 'reg_lambda': [0.8, 10], 'gamma': [0.9, 1.16467595, 2.248149123539492, 3.9963209507789], 'subsample': [0.1, 1]}",32
+HUBERREGRESSOR,sklearn.linear_model.HuberRegressor,"{'epsilon': [1.0, 1.35, 1.5], 'alpha': np.logspace(np.log10(1e-3), np.log10(1e2), num=10)}",30
+QUANTILEREGRESSOR,sklearn.linear_model.QuantileRegressor,"{'alpha': np.logspace(np.log10(1e-3), np.log10(1e2), num=10), 'quantile': [0.1, 0.25, 0.5, 0.75]}",40
+,,,
+Total,,,197
