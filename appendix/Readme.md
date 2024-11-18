@@ -38,6 +38,41 @@ Below is the performance Comparison of `FedForecaster`, `Random Search`, and `N-
 
 
 ## Benchmarking Experiments with all clients' counts
+The below table summarizes the MSE results for the benchmark datasets over all possible clients count keeping in mind that data sets with splits <500 instances are discarded.
+# Performance Comparison of `FedForecaster`, Random Search, and `N-Beats` on Various Datasets
+
+| **Dataset Name**                       | **Clients** | **FedForecaster** | **Random Search** | **N-Beats**         |
+|---------------------------------------|-------------|--------------------|-------------------|---------------------|
+| BOE-XUDLERD                           | 5           | **0.0261**         | 0.0282       | 0.2176            |
+| BOE-XUDLERD                           | 10          | 0.0191         | **0.0142**       | 0.0120            |
+| BOE-XUDLERD                           | 15          | **0.0116**        | 0.0140       | 0.0713            |
+| BOE-XUDLERD                           | 20          | **0.006**          | 0.011             | 0.071               |
+| SunSpotDaily                          | 5           | **24.554**             | 24.839955         | 34.34048            |
+| SunSpotDaily                          | 10          | **29.301**             | 31.521126         | 54.949              |
+| SunSpotDaily                          | 15          | **25.804**             | 26.30128          | 63.512              |
+| SunSpotDaily                          | 20          | **29.372**         | 32.069            | 63.384              |
+| USBirthsDaily                         | 5           | **434.891**        | 533.366           | 983.357             |
+| USBirthsDaily                         | 10          | **535.652**            | 669.647           | 1147.762            |
+| nasdaq_Brazil_Base_Financial_Rate     | 5           | 0.0459           | **0.0435**          | 0.559            |
+| nasdaq_Brazil_Base_Financial_Rate     | 10          | 0.058              | **0.048**         | 0.153               |
+| nasdaq_Brazil_Base_Financial_Rate     | 15          | **0.045743**           | 0.060963          | 0.189575            |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 5           | 0.00423           | 0.04199           | **0.003306**            |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 10          | **0.00697**            | 0.03215          | 0.00698             |
+| nasdaq_Brazil_Pr_Base_Financial_Rate  | 15          | **0.008**          | 0.011775          | 0.008495            |
+| nasdaq_Brazil_Saving_Deposits1        | 5           | **0.028**          | 0.039467          | 0.412               |
+| nasdaq_Brazil_Saving_Deposits2        | 5           | **0.0102**           | 0.0211                 | 0.191782            |
+| nasdaq_Brazil_Saving_Deposits2        | 10          | **0.020**          | 0.02536           | 0.024               |
+| nasdaq_Brazil_Saving_Deposits2        | 15          | 0.0420           | **0.0363**          | 0.076547            |
+| nasdaq_EIA_PET_RWTC                   | 5           | **1.291**          | 1.404             | 8.663               |
+| nasdaq_EIA_PET_RWTC                   | 10          | **1.313**           | 2.100          | 1.529               |
+| nasdaq_EIA_PET_RWTC                   | 15          | **1.3458**           | 2.093          | 1.544               |
+| nasdaq_WIKI_AAPL_Price                | 5           | 18.609             | 19.595            | **17.856**            |
+| nasdaq_WIKI_AAPL_Price                | 10          | **16.564**             | 54.534091         | 18.063154            |
+| nasdaq_WIKI_AAPL_Price                | 15          | **3.761**          | 4.242377          | 4.145               |
+| Energy Select Sector ETF              | 10          | 3.441              | **2.867**         | 24.611              |
+| The Technology Sector ETF             | 10          | **39.996**         | 101.702           | 75.980              |
+| Utilities Select Sector ETF           | 10           | **1.297**          | 11.701            | 17.577              |
+
 
 ## Feature Selection Threshold
 Using accumulative feature importance of 80%, 90%, 95%, 98% results in feature losses of 38.7, 38.0, 36.5 and 36.1 respectively. Although increasing the features results in better losses value as the datset includes better information, there is a reduction in important features count and hence less iteration time 
